@@ -9,7 +9,7 @@ header {
 	top:-20px;
 	left: 0;
 	right: 0;
-	width:49.5%;
+	width:59.5%;
 	height:28.5%;
 }
 
@@ -20,7 +20,7 @@ header #title {
 	position:relative;
 	float:right;
 	padding:12px;
-	top:73%;
+	top:70%;
 	bottom:0px;
 	right:0.5%;
 }
@@ -28,12 +28,13 @@ header #title {
 
 #tweets > div {
 	position:relative;
-	background:rgba(225,225,225,0.85);
 	border-radius: 5px;
+	display:block;
 	height:10%;
 	margin:4px;
-	box-shadow: 3px 3px rgba(200,41,214,0.85);
-	padding:2.5px 12px 2.5px 12px;
+	box-shadow: 2px 2px rgba(190,190,190,0.7);
+	padding:3px 12px 3px 12px;
+	background-color: rgba(0,0,0,0.1);
 }
 
 #display {
@@ -46,7 +47,7 @@ header #title {
 	bottom:0;
 	left: 0;
 	right: 0;
-	width:50%;
+	width:60%;
 	height:50%;
 	overflow-y:auto;
 }
@@ -84,27 +85,27 @@ header #title {
 }
 
 #tweets {
-	text-align:justify;
+	text-align:left;
   	font-family: "Baskerville", serif;
   	font-size:14px;
-  	color:rgb(55,55,55);
-  	text-shadow:0.5px 0.5px rgba(250,250,250,0.8);
+  	color:rgb(255,255,255);
+  	text-shadow:0.5px 0.5px rgba(0,0,0,0.8);
 }
 
 a.user {
 	float:right;
 	text-decoration:none;
-	color:rgb(120,120,120);
+	color:rgb(255,255,255);
+	text-shadow:1.25px 1.25px rgba(0,0,0,1);
 }
 
 span.time {
 	float:left;
-	color:rgb(120,120,120);
+	color:rgb(180,180,180);
 }
 
 span.tweet {
 	position:absolute;
-	font-weight:600;
 	width: 60%;
 	margin-left:10px;
 
