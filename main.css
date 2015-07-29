@@ -25,8 +25,21 @@ header #title {
 	right:0.5%;
 }
 
+header #return {
+	font-family: "Baskerville", serif;
+	color:rgba(200,200,200,0.8);
+	text-shadow: 2px 2px rgba(20,20,20,1);
+	position:relative;
+	float:left;
+	padding:12px;
+	top:70%;
+	bottom:0px;
+	left:0.5%;
+}
 
-#tweets > div {
+
+#all-tweets > div {
+
 	position:relative;
 	border-radius: 5px;
 	display:block;
@@ -37,7 +50,7 @@ header #title {
 	background-color: rgba(0,0,0,0.1);
 }
 
-#display {
+#tweet-box {
 	position: absolute;
 	margin-left: auto;
 	margin-right: auto;
@@ -52,30 +65,6 @@ header #title {
 	overflow-y:auto;
 }
 
-#profile {
-	position: absolute;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top:auto;
-	margin-bottom:auto;
-	top:0;
-	bottom:0;
-	left: 0;
-	right: 0;
-	width:50%;
-	height:50%;
-	overflow-y:auto;
-}
-
-#middle {
-	display:inline-block;
-	position:relative;
-	float:right;
-  	margin:0 2% 0 2%;
-  	width:90%;
-  	overflow-y:auto;
-}
-
 #user {
 	border: 1px dashed blue;
  	float: left;
@@ -84,7 +73,17 @@ header #title {
   	display:none;
 }
 
-#tweets {
+#all-tweets {
+
+	text-align:left;
+  	font-family: "Baskerville", serif;
+  	font-size:14px;
+  	color:rgb(255,255,255);
+  	text-shadow:0.5px 0.5px rgba(0,0,0,0.8);
+}
+
+#user-tweets {
+
 	text-align:left;
   	font-family: "Baskerville", serif;
   	font-size:14px;
@@ -93,6 +92,7 @@ header #title {
 }
 
 a.user {
+	position:relative;
 	float:right;
 	text-decoration:none;
 	color:rgb(255,255,255);
@@ -100,12 +100,13 @@ a.user {
 }
 
 span.time {
+	position:relative;
 	float:left;
 	color:rgb(180,180,180);
 }
 
 span.tweet {
-	position:absolute;
+	position:relative;
 	width: 60%;
 	margin-left:10px;
 
@@ -128,3 +129,33 @@ span.tweet {
     }
 }
 
+.slideout {
+	display:none;
+}
+
+#user-box {
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top:auto;
+	margin-bottom:auto;
+	top:0;
+	bottom:0;
+	left: 0;
+	right: 0;
+	width:60%;
+	height:50%;
+	overflow-y:auto;
+}
+
+#user-tweets > div {
+	display:block;
+	position:relative;
+	border-radius: 5px;
+	display:block;
+	height:10%;
+	margin:4px;
+	box-shadow: 2px 2px rgba(190,190,190,0.7);
+	padding:3px 12px 3px 12px;
+	background-color: rgba(0,0,0,0.1);
+}

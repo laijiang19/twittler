@@ -9,56 +9,109 @@
   <body>
     <header>
       <h3 id="title"><span class="blink">_</span>twittler</h3>
+      <h3 id="return" class="slideout">return</h3>
     </header>
-    <section id="display">
-      <aside>
-      </aside>
-      <section id="tweetBox">
-        <p id="tweets"> </p>
-      </section>
+    <section id="tweet-box">
+      <p id="all-tweets"> </p>
     </section>
-    <section id="user-page">
+    <section id="user-box" class="slideout">
+      <p id="user-tweets"> </p>
     </section>
     <footer>
     </footer>
     <script>
 
       $(document).ready(function(){
-        var $body = $('#tweets');
-        $body.html('');
+        var $allBody = $('#all-tweets');
+        $allBody.html('');
 
-        var index = streams.home.length - 1;
-        var end = index;
+        var allIndex = streams.home.length - 1;
+        var allEnd = allIndex;
+        var userEnd;
 
-        while(index >= 0){
+        while(allIndex >= 0){
           var timestamp = moment().calendar().toLowerCase();
-          var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.html('<span class="time">'+ timestamp+ '</span>' + '<a class="user" href=#>' + tweet.user + '</a>' + ': ' + '<span class="tweet">'+ '"' + tweet.message + '"'+ '</span>');
-          $tweet.appendTo($body);
-          index -= 1;
+          var allTweet = streams.home[allIndex];
+          var $allTweet = $('<div></div>');
+          $allTweet.html('<span class="time">'+ timestamp+ '</span>' + '<a class="user" href=#>' + allTweet.user + '</a>' + ': ' + '<span class="tweet">'+ '"' + allTweet.message + '"'+ '</span>');
+          $allTweet.appendTo($allBody);
+          allIndex -= 1;
         }
 
-        <!-- function to fetch new tweets -->
 
-        var fetchNewTweets = function() {
+        // <!-- get a certain user tweets -->
+
+        $("section").on("click",".user",function(response){
+
+          event.preventDefault(response);
+
+          $('#tweet-box').addClass('slideout');
+          $('#user-box').removeClass('slideout');
+          $('#return').removeClass('slideout');
+
+          var userName = $(this).text();
+          var userIndex = streams.users[userName].length-1;
+          console.log(streams.users[userName]);
+          userEnd = userIndex;
+          var $userBody = $('#user-tweets');
+          $userBody.html=('');
+
+          while (userIndex>=0){
             timestamp = moment().calendar().toLowerCase();
-            index = streams.home.length - 1;
+            var userTweet = streams.users[userName][userIndex];
+            var $userTweet = $('<div></div>');
+            $userTweet.html('<span class="time">'+ timestamp+ '</span>' + '<a class="user" href=#>' + userTweet.user + '</a>' + ': ' + '<span class="tweet">'+ '"' + userTweet.message + '"'+ '</span>');
+            $userTweet.appendTo($userBody);
+            userIndex--;
+          }
 
-            while(end < index){
-            end++;
-            var tweet = streams.home[end];
-            var $tweet = $('<div></div>');
-            $tweet.html('<span class="time">'+timestamp+ '</span>' + '<a class="user" href=#>' + tweet.user + '</a>' + ': ' + '<span class="tweet">'+ '"' + tweet.message + '"'+ '</span>');
-            $tweet.prependTo($body).fadeIn();
+        });
+
+          
+
+        //   $(".user").on("click",function(){
+
+        //     var clickCheck = true;
+
+        //     $('#user-box').addClass("slidein");
+        //     $('#user-box').removeClass('slideout');
+        //     $('#tweet-box').addClass('slideout');
+        //     $('#tweet-box').removeClass("slidein");
+
+        //     var userName = $(this).text();
+        //     var index = streams.users[userName].length-1;
+        //     var $userBody = $('#user-tweets');
+        //     $userBody.html=('');
+
+        //     while (index>=0){
+        //       timestamp = moment().calendar().toLowerCase();
+        //       var userTweet = streams.users[userName][index];
+        //       var $userTweet = $('<div></div>');
+        //       $userTweet.html('<span class="time">'+ timestamp+ '</span>' + '<a class="user" href=#>' + userTweet.user + '</a>' + ': ' + '<span class="tweet">'+ '"' + userTweet.message + '"'+ '</span>');
+        //       $userTweet.appendTo($userBody);
+        //       index--;
+        //   }
+        // });
+
+
+
+        //<!-- function to fetch new tweets -->
+
+        function fetchNewTweets() {
+            timestamp = moment().calendar().toLowerCase();
+            allIndex = streams.home.length - 1;
+            while(allEnd < allIndex){
+            allEnd++;
+            var newTweet = streams.home[allEnd];
+            var $newTweet = $('<div></div>');
+            $newTweet.html('<span class="time">'+timestamp+ '</span>' + '<a class="user" href=#>' + newTweet.user + '</a>' + ': ' + '<span class="tweet">'+ '"' + newTweet.message + '"'+ '</span>');
+            $newTweet.prependTo($allBody);
           }
         }
 
-        <!-- use setInterval to push new tweets in batches -->
+        //<!-- use setInterval to push new tweets in batches -->
 
         setInterval(fetchNewTweets, 4000);
-
-
 
       });
 
