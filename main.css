@@ -2,17 +2,56 @@ body {
 	background: url("img/background.jpg");
 }
 
+header {
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	top:-20px;
+	left: 0;
+	right: 0;
+	width:49.5%;
+	height:28.5%;
+}
+
+header #title {
+	font-family: "Baskerville", serif;
+	color:white;
+	text-shadow: 2px 2px rgba(20,20,20,1);
+	position:relative;
+	float:right;
+	padding:12px;
+	top:73%;
+	bottom:0px;
+	right:0.5%;
+}
+
+
 #tweets > div {
 	position:relative;
-	background:rgba(235,200,30,0.85);
-	border-radius: 4.5px;
+	background:rgba(225,225,225,0.85);
+	border-radius: 5px;
 	height:10%;
 	margin:4px;
-	box-shadow: 3px 3px rgba(150,3,255,0.85);
+	box-shadow: 3px 3px rgba(200,41,214,0.85);
 	padding:2.5px 12px 2.5px 12px;
 }
 
 #display {
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top:auto;
+	margin-bottom:auto;
+	top:0;
+	bottom:0;
+	left: 0;
+	right: 0;
+	width:50%;
+	height:50%;
+	overflow-y:auto;
+}
+
+#profile {
 	position: absolute;
 	margin-left: auto;
 	margin-right: auto;
@@ -49,15 +88,18 @@ body {
   	font-family: "Baskerville", serif;
   	font-size:14px;
   	color:rgb(55,55,55);
-  	text-shadow:0.5px 0.5px rgba(220,220,220,0.8);
+  	text-shadow:0.5px 0.5px rgba(250,250,250,0.8);
 }
 
-span.user {
+a.user {
 	float:right;
+	text-decoration:none;
+	color:rgb(120,120,120);
 }
 
 span.time {
 	float:left;
+	color:rgb(120,120,120);
 }
 
 span.tweet {
@@ -65,4 +107,23 @@ span.tweet {
 	font-weight:600;
 	width: 60%;
 	margin-left:10px;
+
 }
+
+.blink {
+    animation: blink 1.5s steps(5, start) infinite;
+    -webkit-animation: blink 1.5s steps(5, start) infinite;
+}
+    
+@keyframes blink {
+    to {
+      visibility: hidden;
+    }
+}
+    
+@-webkit-keyframes blink {
+    to {
+      visibility: hidden;
+    }
+}
+
