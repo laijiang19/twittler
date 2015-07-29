@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" type="text/css" href="main.css">
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
   </head>
   <body>
+    <header></header>
+    <section id="display">
+      <aside>
+      </aside>
+      <section id="tweetBox">
+        <p id="tweets"> </p>
+      </section>
+    </section>
+    <footer>
+    </footer>
     <script>
 
       $(document).ready(function(){
-        var $body = $('body');
+        var $body = $('#tweets');
         $body.html('');
 
         var index = streams.home.length - 1;
+        var end = index;
+
         while(index >= 0){
           var tweet = streams.home[index];
           var $tweet = $('<div></div>');
@@ -19,6 +32,24 @@
           $tweet.appendTo($body);
           index -= 1;
         }
+
+        <!-- function to fetch new tweets -->
+
+        var fetchNewTweets = function() {
+            index = streams.home.length - 1;
+
+            while(end < index){
+            end++;
+            var tweet = streams.home[end];
+            var $tweet = $('<div></div>');
+            $tweet.text('@' + tweet.user + ': ' + tweet.message);
+            $tweet.prependTo($body).fadeIn();
+          }
+        }
+
+        <!-- use setInterval to push new tweets in batches -->
+
+        setInterval(fetchNewTweets, 4000);
 
       });
 
