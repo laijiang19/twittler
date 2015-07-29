@@ -9,7 +9,7 @@
   <body>
     <header>
       <h3 id="title"><span class="blink">_</span>twittler</h3>
-      <h3 id="return" class="slideout">return</h3>
+      <a href=#><h3 id="return" class="slideout">return</h3></a>
     </header>
     <section id="tweet-box">
       <p id="all-tweets"> </p>
@@ -22,6 +22,9 @@
     <script>
 
       $(document).ready(function(){
+
+        //<!-- get initial tweets -->
+
         var $allBody = $('#all-tweets');
         $allBody.html('');
 
@@ -67,31 +70,14 @@
 
         });
 
-          
+        //<!-- return button to go back to main list -->  
 
-        //   $(".user").on("click",function(){
-
-        //     var clickCheck = true;
-
-        //     $('#user-box').addClass("slidein");
-        //     $('#user-box').removeClass('slideout');
-        //     $('#tweet-box').addClass('slideout');
-        //     $('#tweet-box').removeClass("slidein");
-
-        //     var userName = $(this).text();
-        //     var index = streams.users[userName].length-1;
-        //     var $userBody = $('#user-tweets');
-        //     $userBody.html=('');
-
-        //     while (index>=0){
-        //       timestamp = moment().calendar().toLowerCase();
-        //       var userTweet = streams.users[userName][index];
-        //       var $userTweet = $('<div></div>');
-        //       $userTweet.html('<span class="time">'+ timestamp+ '</span>' + '<a class="user" href=#>' + userTweet.user + '</a>' + ': ' + '<span class="tweet">'+ '"' + userTweet.message + '"'+ '</span>');
-        //       $userTweet.appendTo($userBody);
-        //       index--;
-        //   }
-        // });
+        $("#return").on("click",function(){
+          $('#tweet-box').removeClass('slideout');
+          $('#user-box').addClass('slideout');
+          $('#return').addClass('slideout');  
+          $('#user-tweets').html('');
+        });
 
 
 
