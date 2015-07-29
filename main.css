@@ -1,0 +1,49 @@
+body {
+	background: url("img/background.jpg");
+}
+
+div {
+	position:relative;
+	background:rgba(48,48,48,0.8);
+	height:15px;
+	margin:3px;
+	display:inline-block;
+}
+
+#display {
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top:auto;
+	margin-bottom:auto;
+	top:0;
+	bottom:0;
+	left: 0;
+	right: 0;
+	width:50%;
+	height:50%;
+	overflow-y:auto;
+}
+
+#tweetBox {
+	position:relative;
+	float:right;
+  	color:white;
+  	margin:0 2% 0 2%;
+  	width:90%;
+  	overflow-y:auto;
+}
+
+#user {
+	border: 1px dashed blue;
+ 	float: left;
+  	margin: 0 1.5%;
+  	width: 30%;
+  	display:none;
+}
+
+#tweets {
+	text-align:justify;
+  	font-family:"Trebuchet MS", Helvetica, sans-serif;
+  	font-size:12px;
+}
